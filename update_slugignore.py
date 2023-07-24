@@ -28,3 +28,31 @@ with open(".slugignore", "a") as file:
         file.write(f"{image}\n")
 
 print(f"{num_images_to_ignore} images added to .slugignore.")
+
+
+def add_images_to_slugignore(folder_path, num_images_to_ignore):
+    image_files = [file for file in os.listdir(
+        folder_path) if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    images_to_ignore = random.sample(image_files, num_images_to_ignore)
+    with open(".slugignore", "a") as file:
+        for image in images_to_ignore:
+            file.write(f"{os.path.join(folder_path, image)}\n")
+
+
+# Folder paths for Parasitized and Uninfected folders
+parasitized_folder_path = "inputs/malaria_dataset/cell_images/Parasitized"
+uninfected_folder_path = "inputs/malaria_dataset/cell_images/Uninfected"
+
+# Calculate the number of images to add to .slugignore (1/10 of the total images in each folder)
+num_images_to_ignore_parasitized = len(
+    os.listdir(parasitized_folder_path)) // 10
+num_images_to_ignore_uninfected = len(os.listdir(uninfected_folder_path)) // 10
+
+# Add random images from both folders to .slugignore
+add_images_to_slugignore(parasitized_folder_path,
+                         num_images_to_ignore_parasitized)
+add_images_to_slugignore(uninfected_folder_path,
+                         num_images_to_ignore_uninfected)
+
+print(f"{num_images_to_ignore_parasitized} images added to .slugignore from Parasitized folder.")
+print(f"{num_images_to_ignore_uninfected} images added to .slugignore from Uninfected folder.")
