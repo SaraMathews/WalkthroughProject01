@@ -17,7 +17,7 @@ for subfolder in os.listdir(folder_path):
                        for image in images_in_subfolder])
 
 # Calculate the number of images to add to .slugignore (1/3 of the total images)
-num_images_to_ignore = len(image_files) // 3
+num_images_to_ignore = len(image_files) // 2
 
 # Select random images to add to .slugignore
 images_to_ignore = random.sample(image_files, num_images_to_ignore)
