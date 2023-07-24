@@ -45,8 +45,8 @@ uninfected_folder_path = "inputs/malaria_dataset/cell_images/Uninfected"
 
 # Calculate the number of images to add to .slugignore (1/10 of the total images in each folder)
 num_images_to_ignore_parasitized = len(
-    os.listdir(parasitized_folder_path)) // 10
-num_images_to_ignore_uninfected = len(os.listdir(uninfected_folder_path)) // 10
+    os.listdir(parasitized_folder_path)) // 8
+num_images_to_ignore_uninfected = len(os.listdir(uninfected_folder_path)) // 8
 
 # Add random images from both folders to .slugignore
 add_images_to_slugignore(parasitized_folder_path,
