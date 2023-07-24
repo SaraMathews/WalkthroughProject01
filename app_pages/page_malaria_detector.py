@@ -49,3 +49,49 @@ def page_malaria_detector_body():
             st.markdown(download_dataframe_as_csv(df_report), unsafe_allow_html=True)
 
 
+"""
+The `page_malaria_detector_body` function defines the content and functionality
+of the "Malaria Detector" page in the Streamlit app.
+
+1. The function starts by providing some information about the purpose of the
+Malaria Detector:
+   - The client is interested in detecting whether a given cell contains a
+     malaria parasite or not.
+
+2. The function also informs the user that they can upload blood smear samples
+for live prediction and provides a link to download the images if needed.
+
+3. A file uploader is displayed using `st.file_uploader`, allowing the user to
+upload one or more PNG images of blood smear samples.
+
+4. If the user uploads images using the file uploader, the function proceeds to
+ analyze each image:
+   - It creates a DataFrame `df_report` to store the analysis results for each
+     uploaded image.
+
+5. For each uploaded image, the following steps are performed:
+   - The image is displayed along with its size using `st.image`.
+   - The image is resized to a format suitable for the model using the
+   `resize_input_image` function.
+   - The model is loaded, and the image is passed through the model for
+   prediction using `load_model_and_predict`.
+   - The predictions and probabilities are plotted using
+   `plot_predictions_probabilities`.
+   - (The functions are defined in the src folder)
+
+6.The analysis results for each image are appended to the `df_report` DataFrame
+
+7. After analyzing all the uploaded images, the function displays an
+"Analysis Report" table using `st.table` to show the results
+(image name and prediction) for each image.
+
+8. A link to download the analysis report as a CSV file is also provided using
+`st.markdown` with `unsafe_allow_html=True`. The `download_dataframe_as_csv`
+function converts the DataFrame to a CSV file and generates an HTML link for
+download.
+
+Overall, the `page_malaria_detector_body` function provides a user-friendly
+interface for users to upload blood smear samples and obtain live predictions
+for each sample. The analysis report is presented in a table, and the user can
+download the report as a CSV file for further use.
+"""

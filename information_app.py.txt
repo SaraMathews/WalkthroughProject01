@@ -1,0 +1,96 @@
+"""
+FÖRKLARING TILL app.py
+
+This `app.py` file in the root directory is the main file of your Streamlit web
+application. It sets up and runs the multi-page Streamlit app using the
+`MultiPage` class defined in the `app_pages/multipage.py` file.
+
+
+1. `import streamlit as st`: This line imports the Streamlit library.
+
+2. `from app_pages.multipage import MultiPage`: This line imports the
+`MultiPage` class from the `app_pages/multipage.py` file. This class will help
+manage and organize the multiple pages of the web application.
+
+3. `from app_pages.page_summary import page_summary_body`: These lines import
+the content functions for each page from their respective Python files
+inside the `app_pages` folder.
+
+4. `app = MultiPage(app_name="Malaria Detector")`: This line creates an
+instance of the `MultiPage` class, setting the title of the web application
+as "Malaria Detector".
+
+5. `app.add_page("Quick Project Summary", page_summary_body)`:
+These lines add pages to the web application using the `add_page` method of
+the `MultiPage` class. The first argument is the title of the page, and the
+second argument is the function that defines the content for that page.
+The `page_summary_body` function corresponds to the content and logic for
+the "Quick Project Summary" page.
+
+6. `app.add_page("Cells Visualiser", page_cells_visualizer_body)`:
+This line adds another page with the title "Cells Visualiser" and associates
+it with the `page_cells_visualizer_body` function, which defines the content
+for that page.
+
+7. `app.add_page("Malaria Detection", page_malaria_detector_body)`:
+This line adds the "Malaria Detection" page and associates it with the 
+`page_malaria_detector_body` function.
+
+8. `app.add_page("Project Hypothesis", page_project_hypothesis_body)`:
+This line adds the "Project Hypothesis" page and associates it with the
+`page_project_hypothesis_body` function.
+
+9. `app.add_page("ML Performance Metrics", page_ml_performance_metrics)`:
+This line adds the "ML Performance Metrics" page and associates it with the
+`page_ml_performance_metrics` function.
+
+10. `app.run()`: This line runs the Streamlit web application. The `run` method
+of the `MultiPage` class handles the rendering of the pages and allows the user
+to navigate between them using the sidebar radio buttons.
+
+In summary, the `app.py` file defines the structure of your multi-page
+Streamlit web application. It imports the necessary functions for each page
+from their respective Python files in the `app_pages` folder and uses the
+`MultiPage` class to organize and run the web application. Each page's content
+ and logic are defined in separate functions within their respective Python
+ files, and the `app.py` file arranges and runs the application, enabling
+ users to navigate between different pages.
+
+
+
+
+Here's how the functions are executed and called:
+
+In the (example) page_cells_visualizer.py file, the image_montage function is
+defined. This function is responsible for creating the image montage grid and
+displaying it in the Streamlit app.
+
+In the app.py file, all the pages of the app are imported. These pages are
+separate Python scripts (e.g., page_summary.py, page_cells_visualizer.py, etc.)
+located in the app_pages folder. Each page contains a specific function that
+defines the content to be displayed on that page.
+
+The MultiPage class is instantiated in the app.py file with the app name as
+"Malaria Detector."
+
+Using the add_page method of the MultiPage class, each page title and its
+corresponding function are added. For example:
+
+app.add_page("Cells Visualiser", page_cells_visualizer_body) adds the
+"Cells Visualiser" page with the page_cells_visualizer_body function, which
+defines the content of the "Cells Visualizer" page.
+Once all the pages and their functions are added, the run method of the
+MultiPage class is called: app.run(). This starts the Streamlit app and
+displays the app title along with a sidebar containing the page titles.
+
+When the user selects a page from the sidebar, the corresponding function for
+that page is called and executed. For example, if the user selects the
+"Cells Visualiser" page, the page_cells_visualizer_body function is called,
+which in turn calls the image_montage function to display the image montage
+grid.
+
+So, the execution flow is as follows:
+User interaction (selecting a page) →
+Function call (corresponding to the selected page) →
+Image montage grid displayed in the Streamlit app.
+"""
