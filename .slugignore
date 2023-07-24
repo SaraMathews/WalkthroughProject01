@@ -1,3 +1,3 @@
-inputs/malaria_dataset/cell_images/test
-inputs/malaria_dataset/cell_images/train
+/workspace/WalkthroughProject01/jupyter_notebooks/inputs/malaria_dataset/cell_images/test/
+/workspace/WalkthroughProject01/jupyter_notebooks/inputs/malaria_dataset/cell_images/train/
 README.md
